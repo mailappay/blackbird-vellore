@@ -43,8 +43,44 @@
             border-bottom: 1px solid #333;
         }
 
+        /* Upgraded Logo Section */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .logo img {
-            height: 50px;
+            height: 70px; /* Size increased */
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .text-white {
+            color: #ffffff;
+        }
+
+        .text-grey {
+            color: #b0b0b0;
+        }
+
+        /* Header Actions (Halal + Menu) */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-halal {
+            height: 45px; /* Scaled smaller than primary logo */
             width: auto;
             display: block;
             object-fit: contain;
@@ -271,13 +307,6 @@
             border-color: var(--primary-color);
         }
 
-        .certification-badge img {
-            height: 80px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-        }
-
         .copyright {
             text-align: center;
             color: #777;
@@ -362,12 +391,16 @@
 </head>
 <body>
 
-    <!-- Header / Navigation Trigger -->
+    <!-- Header Module -->
     <header>
         <div class="logo">
             <img src="Blackbird-logo.png" alt="Black Bird Logo">
+            <span class="logo-text"><span class="text-white">Black</span> <span class="text-grey">bird</span></span>
         </div>
-        <button class="open-btn" onclick="openNav()">☰ Menu</button>
+        <div class="header-actions">
+            <img src="Halal.png" alt="Halal Certified" class="header-halal">
+            <button class="open-btn" onclick="openNav()">☰ Menu</button>
+        </div>
     </header>
 
     <!-- Sidebar Navigation Pane -->
@@ -423,10 +456,6 @@
             <div class="social-links">
                 <a href="https://instagram.com/[InsertHandle]" target="_blank">Instagram</a>
                 <a href="https://facebook.com/[InsertHandle]" target="_blank">Facebook</a>
-            </div>
-
-            <div class="certification-badge">
-                <img src="Halal.png" alt="Halal Certified">
             </div>
         </div>
         <div class="copyright">
