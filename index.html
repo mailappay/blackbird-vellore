@@ -26,9 +26,10 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header Navigation */
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -42,49 +43,80 @@
             border-bottom: 1px solid #333;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--text-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+            object-fit: contain;
         }
 
-        .logo span {
-            color: var(--primary-color);
+        /* Right Side Navigation Pane */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            right: 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            overflow-x: hidden;
+            transition: 0.4s;
+            padding-top: 80px;
+            border-left: 2px solid var(--primary-color);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.8);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav ul li a {
+        .sidebar a {
+            padding: 15px 30px;
             text-decoration: none;
+            font-size: 1.2rem;
             color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
+            display: block;
+            transition: 0.3s;
+            border-bottom: 1px solid #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        nav ul li a:hover {
+        .sidebar a:hover {
+            color: #000;
+            background-color: var(--primary-color);
+        }
+
+        .sidebar .close-nav-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px;
+            border-bottom: none;
+            padding: 0;
+            background: none;
+        }
+        
+        .sidebar .close-nav-btn:hover {
+            background-color: transparent;
             color: var(--primary-color);
         }
 
-        .book-btn {
-            background-color: var(--primary-color);
-            color: #000;
-            border: none;
-            padding: 0.6rem 1.5rem;
+        /* Navigation Trigger Button */
+        .open-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.6rem 1.2rem;
             font-size: 1rem;
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .book-btn:hover {
-            background-color: #e0a000;
+        .open-btn:hover {
+            background-color: var(--primary-color);
+            color: #000;
         }
 
         /* Hero Section */
@@ -111,6 +143,22 @@
             max-width: 600px;
             margin-bottom: 2rem;
             color: #ccc;
+        }
+
+        .book-btn-hero {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .book-btn-hero:hover {
+            background-color: #e0a000;
         }
 
         /* Section Formatting */
@@ -161,6 +209,7 @@
         .food-card {
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid #333;
         }
 
         .food-card img {
@@ -175,11 +224,72 @@
             transform: scale(1.05);
         }
 
+        /* Footer & Contact Section */
+        footer {
+            background-color: #0a0a0a;
+            padding: 3rem 5%;
+            border-top: 1px solid #333;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+            border: 1px solid var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .social-links a:hover {
+            color: #000;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .certification-badge img {
+            height: 80px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #777;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+        }
+
         /* Booking Modal */
         .modal {
             display: none;
             position: fixed;
-            z-index: 2000;
+            z-index: 3000;
             left: 0;
             top: 0;
             width: 100%;
@@ -196,6 +306,7 @@
             width: 100%;
             max-width: 500px;
             position: relative;
+            border: 1px solid var(--primary-color);
         }
 
         .close-btn {
@@ -247,36 +358,33 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
-        /* Footer */
-        footer {
-            background-color: #0a0a0a;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #333;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
+    <!-- Header / Navigation Trigger -->
     <header>
-        <div class="logo">Black <span>Bird</span></div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-            </ul>
-        </nav>
-        <button class="book-btn" onclick="openModal()">Book a Table</button>
+        <div class="logo">
+            <img src="Blackbird-logo.png" alt="Black Bird Logo">
+        </div>
+        <button class="open-btn" onclick="openNav()">☰ Menu</button>
     </header>
+
+    <!-- Sidebar Navigation Pane -->
+    <div id="rightSidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-nav-btn" onclick="closeNav()">&times;</a>
+        <a href="#home" onclick="closeNav()">Home</a>
+        <a href="#menu" onclick="closeNav()">Menu</a>
+        <a href="#gallery" onclick="closeNav()">Gallery</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
+        <a href="javascript:void(0)" onclick="openModal(); closeNav();" style="color: var(--primary-color); font-weight: bold;">Book a Table</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <h1>Welcome to Black Bird</h1>
         <p>Experience the finest fast food, pizzas, beverages, and desserts in Vellore. Quality ingredients, exceptional taste.</p>
-        <button class="book-btn" onclick="openModal()" style="padding: 1rem 2rem; font-size: 1.2rem;">Reserve Now</button>
+        <button class="book-btn-hero" onclick="openModal()">Reserve Now</button>
     </section>
 
     <!-- Menu Section -->
@@ -293,7 +401,7 @@
 
     <!-- Gallery Section -->
     <section id="gallery">
-        <h2 class="section-title">Culinary Highlights</h2>
+        <h2 class="section-title">Fine Dining & Culinary Highlights</h2>
         <div class="food-gallery">
             <div class="food-card"><img src="1000177801.png" alt="Burger"></div>
             <div class="food-card"><img src="1000177787.png" alt="Fried Chicken"></div>
@@ -303,9 +411,27 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Black Bird Restaurant, Vellore. All systems operational.</p>
+    <!-- Footer & Contact Section -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p>Phone: +91 [Insert Phone Number]</p>
+                <p>Address: [Insert Street Address], Vellore, Tamil Nadu</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/[InsertHandle]" target="_blank">Instagram</a>
+                <a href="https://facebook.com/[InsertHandle]" target="_blank">Facebook</a>
+            </div>
+
+            <div class="certification-badge">
+                <img src="Halal.png" alt="Halal Certified">
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Black Bird Restaurant, Vellore. All systems operational.</p>
+        </div>
     </footer>
 
     <!-- Booking Modal Interface -->
@@ -318,10 +444,10 @@
                     <label for="name">Name</label>
                     <input type="text" id="name" required>
                 </div>
-<div class="form-group">
-    <label for="phone">Mobile Number</label>
-    <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
-</div>
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
+                </div>
                 <div class="form-group">
                     <label for="date">Date</label>
                     <input type="date" id="date" required>
@@ -345,8 +471,18 @@
         </div>
     </div>
 
-    <!-- JavaScript for Modal Operation -->
+    <!-- JavaScript Operations -->
     <script>
+        // Sidebar Control
+        function openNav() {
+            document.getElementById("rightSidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("rightSidebar").style.width = "0";
+        }
+
+        // Modal Control
         const modal = document.getElementById("bookingModal");
 
         function openModal() {
@@ -363,6 +499,7 @@
             }
         }
 
+        // Form Submission
         function submitForm(event) {
             event.preventDefault();
             alert("Reservation data processed successfully. Awaiting confirmation.");
@@ -372,4 +509,3 @@
     </script>
 </body>
 </html>
-
