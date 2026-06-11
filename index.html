@@ -72,18 +72,20 @@
             color: #b0b0b0;
         }
 
-        /* Header Actions (Halal + Menu) */
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
+        /* Halal Certification Badge - Relocated */
         .header-halal {
             height: 45px; /* Scaled smaller than primary logo */
             width: auto;
             display: block;
             object-fit: contain;
+            margin-left: 20px; /* Engineered tab gap */
+        }
+
+        /* Header Actions (Menu) */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         /* Right Side Navigation Pane */
@@ -396,9 +398,9 @@
         <div class="logo">
             <img src="Blackbird-logo.png" alt="Black Bird Logo">
             <span class="logo-text"><span class="text-white">Black</span> <span class="text-grey">bird</span></span>
+            <img src="Halal.png" alt="Halal Certified" class="header-halal">
         </div>
         <div class="header-actions">
-            <img src="Halal.png" alt="Halal Certified" class="header-halal">
             <button class="open-btn" onclick="openNav()">☰ Menu</button>
         </div>
     </header>
