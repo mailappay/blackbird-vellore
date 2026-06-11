@@ -51,14 +51,19 @@
         }
 
         .logo img {
-            height: 70px; /* Size increased */
+            height: 70px;
             width: auto;
             display: block;
             object-fit: contain;
         }
 
+        /* Stacked Logo Text */
         .logo-text {
-            font-size: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1; /* Tightens the gap between the two words */
+            font-size: 1.6rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -72,13 +77,13 @@
             color: #b0b0b0;
         }
 
-        /* Halal Certification Badge - Relocated */
+        /* Halal Certification Badge */
         .header-halal {
-            height: 45px; /* Scaled smaller than primary logo */
+            height: 45px;
             width: auto;
             display: block;
             object-fit: contain;
-            margin-left: 20px; /* Engineered tab gap */
+            margin-left: 20px;
         }
 
         /* Header Actions (Menu) */
@@ -397,7 +402,11 @@
     <header>
         <div class="logo">
             <img src="Blackbird-logo.png" alt="Black Bird Logo">
-            <span class="logo-text"><span class="text-white">Black</span> <span class="text-grey">bird</span></span>
+            <!-- Modified text container to stack the words -->
+            <div class="logo-text">
+                <span class="text-white">Black</span>
+                <span class="text-grey">bird</span>
+            </div>
             <img src="Halal.png" alt="Halal Certified" class="header-halal">
         </div>
         <div class="header-actions">
